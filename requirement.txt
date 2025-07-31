@@ -1,1 +1,35 @@
-mongoose: 11.0.0,
+# NestJS Backend Dependencies
+# Core NestJS packages
+@nestjs/common: ^11.0.1
+@nestjs/config: ^4.0.2
+@nestjs/core: ^11.0.1
+@nestjs/jwt: ^11.0.0
+@nestjs/mongoose: ^11.0.3
+@nestjs/passport: ^11.0.5
+@nestjs/platform-express: ^11.0.1
+
+# Authentication and Security
+bcrypt: ^6.0.0
+jsonwebtoken: ^9.0.2
+passport: ^0.7.0
+passport-jwt: ^4.0.1
+
+# Database
+mongoose: ^8.16.5
+
+# Validation and Transformation
+class-transformer: ^0.5.1
+class-validator: ^0.14.2
+
+# Environment and Utilities
+dotenv: ^17.2.1
+reflect-metadata: ^0.2.2
+rxjs: ^7.8.1
+
+# Development Dependencies (optional)
+@nestjs/cli: ^11.0.0
+@nestjs/testing: ^11.0.1
+typescript: ^5.7.3
+jest: ^29.7.0
+eslint: ^9.18.0
+prettier: ^3.4.2
