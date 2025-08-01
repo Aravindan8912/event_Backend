@@ -14,7 +14,6 @@ export class UsersController {
   }
 
   @Get('profile')
-  @UseGuards(AppGuard)
   getProfile(@CurrentUser() user: any) {
     return {
       message: 'This is a protected route',

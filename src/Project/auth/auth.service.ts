@@ -49,7 +49,7 @@ export class AuthService {
       });
       return { accessToken, refreshToken };
     } catch (error) {
-    
+      console.error('Login error:', error);
       throw error;
     }
   }

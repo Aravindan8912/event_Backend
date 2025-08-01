@@ -17,7 +17,7 @@ This guide will show you how to test your authentication system using Postman.
 ### Request Details:
 
 - **Method**: POST
-- **URL**: `http://localhost:3000/auth/register`
+- **URL**: `http://localhost:3000/api/auth/register`
 - **Headers**:
   - `Content-Type: application/json`
 
@@ -48,7 +48,7 @@ This guide will show you how to test your authentication system using Postman.
 ### Request Details:
 
 - **Method**: POST
-- **URL**: `http://localhost:3000/auth/login`
+- **URL**: `http://localhost:3000/api/auth/login`
 - **Headers**:
   - `Content-Type: application/json`
 
@@ -76,7 +76,7 @@ This guide will show you how to test your authentication system using Postman.
 ### Request Details:
 
 - **Method**: GET
-- **URL**: `http://localhost:3000/`
+- **URL**: `http://localhost:3000/api/`
 - **Headers**: None required
 
 ### Expected Response:
@@ -90,7 +90,7 @@ Hello World!
 ### Request Details:
 
 - **Method**: GET
-- **URL**: `http://localhost:3000/users/profile`
+- **URL**: `http://localhost:3000/api/users/profile`
 - **Headers**:
   - `Authorization: Bearer YOUR_ACCESS_TOKEN_HERE`
 
@@ -114,7 +114,7 @@ Replace `YOUR_ACCESS_TOKEN_HERE` with the actual token from Step 2.
 ### Request Details:
 
 - **Method**: GET
-- **URL**: `http://localhost:3000/users/profile`
+- **URL**: `http://localhost:3000/api/users/profile`
 - **Headers**: None
 
 ### Expected Response:
@@ -131,7 +131,7 @@ Replace `YOUR_ACCESS_TOKEN_HERE` with the actual token from Step 2.
 ### Request Details:
 
 - **Method**: GET
-- **URL**: `http://localhost:3000/users`
+- **URL**: `http://localhost:3000/api/users`
 - **Headers**:
   - `Authorization: Bearer YOUR_ACCESS_TOKEN_HERE`
 
@@ -163,7 +163,7 @@ Replace `YOUR_ACCESS_TOKEN_HERE` with the actual token from Step 2.
 2. Click "New Environment"
 3. Name it "Local Development"
 4. Add these variables:
-   - `baseUrl`: `http://localhost:3000`
+   - `baseUrl`: `http://localhost:3000/api`
    - `accessToken`: (leave empty for now)
 
 ### 3. Create Request Folders
@@ -243,7 +243,7 @@ if (pm.response.code === 200) {
    - Check if the email exists in the database
 
 4. **"Invalid token" error**
-   - The token might be expired (tokens expire after 1 hour)
+   - The token might be expired (tokens expire after 15 minutes)
    - Login again to get a fresh token
 
 ### Environment Variables Check:
@@ -260,9 +260,9 @@ MONGODB_URI=mongodb://localhost:27017/event_Back
 - [ ] Server is running on `http://localhost:3000`
 - [ ] Can register a new user
 - [ ] Can login and get access token
-- [ ] Can access public route (`GET /`)
+- [ ] Can access public route (`GET /api/`)
 - [ ] Cannot access protected route without token
 - [ ] Can access protected route with valid token
-- [ ] Token expires after 1 hour (optional test)
+- [ ] Token expires after 15 minutes (optional test)
 
 Your authentication system is working correctly if all these tests pass! 🎉

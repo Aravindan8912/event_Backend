@@ -23,7 +23,7 @@ export class UsersService {
   }
 
   async findAllUsers(): Promise<User[]> {
-    return this.userModel.find();
+    return this.userModel.find().select('-password');
   }
 
   async findUserByEmail(email: string): Promise<User | null> {
@@ -31,6 +31,6 @@ export class UsersService {
   }
 
   async findUserById(id: string): Promise<User | null> {
-    return this.userModel.findById(id);
+    return this.userModel.findById(id).select('-password');
   }
 }
