@@ -9,6 +9,9 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:3000', // React default
+      'http://localhost:5173', // Vite default
+      'http://localhost:4200', // Angular default
+      'http://localhost:8080', // Vue default
     ].filter(Boolean),
     credentials: true, // Allow cookies
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],

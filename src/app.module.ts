@@ -18,7 +18,7 @@ import { AuthguardModule } from './Project/auth/guards/authguard.module';
       useFactory: (configService: ConfigService) => ({
         uri:
           configService.get('MONGODB_URI') ||
-          'mongodb://localhost:27017/event_Back',
+          'mongodb://ec2-13-49-238-61.eu-north-1.compute.amazonaws.com:27017/event_Back',
       }),
     }),
     UsersModule,
