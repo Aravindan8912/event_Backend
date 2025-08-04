@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Backend Endpoint</title>
+  </head>
+  <body>
+    <h1>Test Backend Connection</h1>
+    <button onclick="testConnection()">Test Connection</button>
+    <div id="result"></div>
+
+    <script>
+      async function testConnection() {
+        try {
+          const response = await fetch(
+            'http://localhost:3000/api/auth/register',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                username: 'testuser',
+                email: 'test@example.com',
+                password: 'password123',
+              }),
+            },
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            document.getElementById('result').innerHTML = `
+                        <h3>✅ Success!</h3>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+          } else {
+            document.getElementById('result').innerHTML = `
+                        <h3>❌ Error: ${response.status}</h3>
+                        <p>Status: ${response.statusText}</p>
+                    `;
+          }
+        } catch (error) {
+          document.getElementById('result').innerHTML = `
+                    <h3>❌ Connection Failed</h3>
+                    <p>Error: ${error.message}</p>
+                    <p>Make sure your backend server is running on http://localhost:3000</p>
+                `;
+        }
+      }
+    </script>
+  </body>
+</html>
