@@ -9,9 +9,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:3000', // React default
-      'http://localhost:5173', // Vite default
-      'http://localhost:4200', // Angular default
-      'http://localhost:8080', // Vue default
+      'http://13.49.238.61', // Your remote frontend
     ].filter(Boolean),
     credentials: true, // Allow cookies
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -36,7 +34,8 @@ async function bootstrap() {
   // Global prefix
   app.setGlobalPrefix('api');
 
-  const port = process.env.PORT || 3000;
-  await app.listen(port);
+  const port = process.env.PORT || 3001; // Changed to 3001
+  await app.listen(port, '0.0.0.0');
+  console.log(`🚀 Server running on http://localhost:${port}`);
 }
 bootstrap();
